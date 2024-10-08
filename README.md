@@ -13,5 +13,6 @@ Microcontroller Abstraction Layer software drivers for tm4c123gh6pm MCU
   3- system clock driver (PLL)
   4- SysTick
   5- NVIC
+  6- ADC
 =======
 >>>>>>> e1a41bc (latest 10/8/24)
