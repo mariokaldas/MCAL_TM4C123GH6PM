@@ -15,6 +15,7 @@
 
 void NVIC_EnableIRQ(NVIC_IRQType IRQ_Num){
 
+<<<<<<< HEAD
     switch(IRQ_Num / 32){
 
     case 0:
@@ -43,10 +44,21 @@ void NVIC_EnableIRQ(NVIC_IRQType IRQ_Num){
         break;
 
     }
+=======
+    /*
+     * - Divide IRQ_Num by 32 to determine which enable register by offset
+     * - Remainder IRQ_Num with 32 to determine which bit to be set
+     *
+     * */
+
+    NVIC_IRQ_EN_BASE[IRQ_Num/32] = NVIC_IRQ_EN_BASE[IRQ_Num/32] | (1<<(IRQ_Num % 32));
+
+>>>>>>> e1a41bc (latest 10/8/24)
 }
 
 void NVIC_DisableIRQ(NVIC_IRQType IRQ_Num){
 
+<<<<<<< HEAD
     switch(IRQ_Num / 32){
 
     case 0:
@@ -75,6 +87,14 @@ void NVIC_DisableIRQ(NVIC_IRQType IRQ_Num){
         break;
 
     }
+=======
+    /*
+     * - Divide IRQ_Num by 32 to determine which enable register by offset
+     * - Remainder IRQ_Num with 32 to determine which bit to be set
+     *
+     * */
+    NVIC_IRQ_DIS_BASE[IRQ_Num/32] = NVIC_IRQ_DIS_BASE[IRQ_Num/32] | (1<<(IRQ_Num % 32));
+>>>>>>> e1a41bc (latest 10/8/24)
 
 }
 
@@ -83,6 +103,7 @@ void NVIC_SetPriorityIRQ(NVIC_IRQType IRQ_Num, NVIC_IRQPriorityType IRQ_Priority
 
 
     /*
+<<<<<<< HEAD
      * -  To determine which combination of bits required : apply equation (IRQ_Num % 4),
      * this equation result 0 or 1 or 2 or 3 according to the following 3 cases
      *
@@ -114,6 +135,17 @@ void NVIC_SetPriorityIRQ(NVIC_IRQType IRQ_Num, NVIC_IRQPriorityType IRQ_Priority
 
 
     }
+=======
+     * -  To determine which register required : consider the IRQ number (0-138) is the offset of
+     * the base register IRQ's priority registers
+     *
+     * -  note that the offset applied by one byte not four bytes
+     * -  (<<5) to jump over with reserved bits
+     *
+     * */
+    NVIC_IRQ_PRI_BASE[IRQ_Num] = (NVIC_IRQ_PRI_BASE[IRQ_Num] & 0x1F) | ((IRQ_Priority & 0x07)<<5);
+
+>>>>>>> e1a41bc (latest 10/8/24)
 
 }
 

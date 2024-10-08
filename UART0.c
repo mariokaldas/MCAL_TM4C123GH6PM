@@ -8,10 +8,42 @@
 #include"UART0.h"
 #include"GPIO.h"
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> e1a41bc (latest 10/8/24)
 /*******************************************************************************
  *                            Functions definition                             *
  *******************************************************************************/
 
+<<<<<<< HEAD
+=======
+void GPIO_SetupUART0Pins(void){
+
+
+    /* Enable clock for PORTA for GPIO module */
+    SYSCTL_RCGCGPIO_R |= 1;
+
+    /* Make sure that clock is enabled and registers are accessible */
+    while(!(SYSCTL_PRGPIO_R & 1));
+
+    /* Receiver pin as input */
+    GPIO_PORTA_DIR_R &= ~(1<<0);
+
+    /* Transmitter pin as output */
+    GPIO_PORTA_DIR_R |= (1<<1);
+
+    /* Use first 2 pins as alternative function (not GPIO) */
+    GPIO_PORTA_AFSEL_R |= 0x3;
+
+    /* Use first 2 pins as UART pins */
+    GPIO_PORTA_PCTL_R = (GPIO_PORTA_PCTL_R & 0xFFFFFF00) | (0x00000011);
+
+    /* Digital enable for transmitter and receiver pins */
+    GPIO_PORTA_DEN_R |= 0x3;
+}
+
+>>>>>>> e1a41bc (latest 10/8/24)
 void UART0_Init(void){
 
     GPIO_SetupUART0Pins();
@@ -121,4 +153,34 @@ void UART0_ReceiveData(uint8 *pData, uint32 uSize){
     }
 }
 
+<<<<<<< HEAD
 
+=======
+void UART0_SendInteger(sint64 sNumber)
+{
+
+    uint8 uDigits[20];
+    sint8 uCounter = 0;
+
+    /* Send the negative sign in case of negative numbers */
+    if (sNumber < 0)
+    {
+        UART0_SendByte('-');
+        sNumber *= -1;
+    }
+
+    /* Convert the number to an array of characters */
+    do
+    {
+        uDigits[uCounter++] = sNumber % 10 + '0'; /* Convert each digit to its corresponding ASCI character */
+        sNumber /= 10; /* Remove the already converted digit */
+    }
+    while (sNumber != 0);
+
+    /* Send the array of characters in a reverse order as the digits were converted from right to left */
+    for( uCounter--; uCounter>= 0; uCounter--)
+    {
+        UART0_SendByte(uDigits[uCounter]);
+    }
+}
+>>>>>>> e1a41bc (latest 10/8/24)

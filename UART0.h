@@ -45,7 +45,11 @@ extern void UART0_SendString(const uint8 *pData);
 
 extern void UART0_ReceiveString(uint8 *pData);
 
+<<<<<<< HEAD
 
+=======
+extern void UART0_SendInteger(sint64 sNumber);
+>>>>>>> e1a41bc (latest 10/8/24)
 
 
 
