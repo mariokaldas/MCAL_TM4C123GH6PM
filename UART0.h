@@ -1,9 +1,21 @@
-/*
- * UART0.h
+/******************************************************************************
  *
- *  Created on: Jul 21, 2024
- *      Author: mario
- */
+ * Module: UART
+ *
+ * File Name: UART.h
+ *
+ * Description: Header file for the ARM Cortex M4 TM4C123GH6PM UART driver
+ *
+ * Author: Mario kaldas
+ *
+ *******************************************************************************/
+
+
+/* NOTE:
+ *
+ * Used pin for UART0 are PA0 (receiver) ,PA1 (transmitter)
+ *
+ *  */
 
 #ifndef UART0_H_
 #define UART0_H_
@@ -45,11 +57,7 @@ extern void UART0_SendString(const uint8 *pData);
 
 extern void UART0_ReceiveString(uint8 *pData);
 
-<<<<<<< HEAD
-
-=======
 extern void UART0_SendInteger(sint64 sNumber);
->>>>>>> e1a41bc (latest 10/8/24)
 
 
 

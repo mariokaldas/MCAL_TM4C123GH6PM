@@ -11,6 +11,7 @@
  *******************************************************************************/
 
 #include"ADC.h"
+#include"NVIC.h"
 
 /***************************************************************************
  *                              Configurations
@@ -135,13 +136,20 @@ void ADC_init(const ADC_configType* ptr){
 
         }
     }
+
+#ifdef INTERRUPT
+
+    NVIC_EnableIRQ(ADC0_SS3_IRQ);
+    NVIC_SetPriorityIRQ(ADC0_SS3_IRQ,6);
+
+#endif
 }
 
 #ifdef POLLING
 uint16 ADC_readChannel(uint8 ch_num){
 
     /* Configure channel number in SS3 to the required channel to be read */
-    ADC0_ADCSSMUX3 = (ADC0_ADCSSMUX3 & 0XF) | (ch_num);
+    ADC0_ADCSSMUX3 = (ADC0_ADCSSMUX3 & 0X0) | (ch_num);
 
     /* Start conversion */
     ADC0_ADCPSSI |= (1<<3);

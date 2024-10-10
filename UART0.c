@@ -1,23 +1,23 @@
-/*
- * UART0.c
+/******************************************************************************
  *
- *  Created on: Jul 21, 2024
- *      Author: mario
- */
+ * Module: UART
+ *
+ * File Name: UART.c
+ *
+ * Description: Source file for the ARM Cortex M4 TM4C123GH6PM UART driver
+ *
+ * Author: Mario kaldas
+ *
+ *******************************************************************************/
 
 #include"UART0.h"
 #include"GPIO.h"
 
-<<<<<<< HEAD
-=======
 
->>>>>>> e1a41bc (latest 10/8/24)
 /*******************************************************************************
  *                            Functions definition                             *
  *******************************************************************************/
 
-<<<<<<< HEAD
-=======
 void GPIO_SetupUART0Pins(void){
 
 
@@ -43,7 +43,6 @@ void GPIO_SetupUART0Pins(void){
     GPIO_PORTA_DEN_R |= 0x3;
 }
 
->>>>>>> e1a41bc (latest 10/8/24)
 void UART0_Init(void){
 
     GPIO_SetupUART0Pins();
@@ -153,9 +152,6 @@ void UART0_ReceiveData(uint8 *pData, uint32 uSize){
     }
 }
 
-<<<<<<< HEAD
-
-=======
 void UART0_SendInteger(sint64 sNumber)
 {
 
@@ -183,4 +179,3 @@ void UART0_SendInteger(sint64 sNumber)
         UART0_SendByte(uDigits[uCounter]);
     }
 }
->>>>>>> e1a41bc (latest 10/8/24)

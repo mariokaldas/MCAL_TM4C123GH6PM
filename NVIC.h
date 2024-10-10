@@ -29,20 +29,14 @@
 #define NVIC_SYSPRI2_R      (*((volatile uint32*) 0xE000ED1C))
 #define NVIC_SYSPRI3_R      (*((volatile uint32*) 0xE000ED20))
 
-<<<<<<< HEAD
-=======
 #define NVIC_IRQ_EN_BASE    (((volatile uint32*) 0xE000E100))
->>>>>>> e1a41bc (latest 10/8/24)
 #define NVIC_IRQ_EN0_R      (*((volatile uint32*) 0xE000E100))
 #define NVIC_IRQ_EN1_R      (*((volatile uint32*) 0xE000E104))
 #define NVIC_IRQ_EN2_R      (*((volatile uint32*) 0xE000E108))
 #define NVIC_IRQ_EN3_R      (*((volatile uint32*) 0xE000E10C))
 #define NVIC_IRQ_EN4_R      (*((volatile uint32*) 0xE000E110))
 
-<<<<<<< HEAD
-=======
 #define NVIC_IRQ_DIS_BASE   (((volatile uint32*) 0xE000E180))
->>>>>>> e1a41bc (latest 10/8/24)
 #define NVIC_IRQ_DIS0_R     (*((volatile uint32*) 0xE000E180))
 #define NVIC_IRQ_DIS1_R     (*((volatile uint32*) 0xE000E184))
 #define NVIC_IRQ_DIS2_R     (*((volatile uint32*) 0xE000E188))

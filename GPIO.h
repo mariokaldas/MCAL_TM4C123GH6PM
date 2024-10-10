@@ -1,23 +1,14 @@
-<<<<<<< HEAD
-/*
- * GPIO.H
- *
- *  Created on: Apr 18, 2024
- *      Author: mario
- */
-=======
 /******************************************************************************
  *
  * Module: GPIO
  *
  * File Name: GPIO.h
  *
- * Description: Header file for the ARM Cortex M4 GPIO driver
+ * Description: Header file for the ARM Cortex M4 TM4C123GH6PM GPIO driver
  *
  * Author: Mario kaldas
  *
  *******************************************************************************/
->>>>>>> e1a41bc (latest 10/8/24)
 
 #ifndef GPIO_H_
 #define GPIO_H_

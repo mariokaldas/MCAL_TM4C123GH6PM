@@ -1,9 +1,14 @@
-/*
- * NVIC.c
+/******************************************************************************
  *
- *  Created on: Jul 27, 2024
- *      Author: mario
- */
+ * Module: NVIC
+ *
+ * File Name: NVIC.c
+ *
+ * Description: Source file for the ARM Cortex M4 NVIC driver
+ *
+ * Author: Mario kaldas
+ *
+ *******************************************************************************/
 
 
 #include"NVIC.h"
@@ -15,36 +20,6 @@
 
 void NVIC_EnableIRQ(NVIC_IRQType IRQ_Num){
 
-<<<<<<< HEAD
-    switch(IRQ_Num / 32){
-
-    case 0:
-
-        NVIC_IRQ_EN0_R |= (1<<(IRQ_Num % 32));
-        break;
-
-    case 1:
-
-        NVIC_IRQ_EN1_R |= (1<<(IRQ_Num % 32));
-        break;
-
-    case 2:
-
-        NVIC_IRQ_EN2_R |= (1<<(IRQ_Num % 32));
-        break;
-
-    case 3:
-
-        NVIC_IRQ_EN3_R |= (1<<(IRQ_Num % 32));
-        break;
-
-    case 4:
-
-        NVIC_IRQ_EN4_R |= (1<<(IRQ_Num % 32));
-        break;
-
-    }
-=======
     /*
      * - Divide IRQ_Num by 32 to determine which enable register by offset
      * - Remainder IRQ_Num with 32 to determine which bit to be set
@@ -53,48 +28,16 @@ void NVIC_EnableIRQ(NVIC_IRQType IRQ_Num){
 
     NVIC_IRQ_EN_BASE[IRQ_Num/32] = NVIC_IRQ_EN_BASE[IRQ_Num/32] | (1<<(IRQ_Num % 32));
 
->>>>>>> e1a41bc (latest 10/8/24)
 }
 
 void NVIC_DisableIRQ(NVIC_IRQType IRQ_Num){
 
-<<<<<<< HEAD
-    switch(IRQ_Num / 32){
-
-    case 0:
-
-        NVIC_IRQ_DIS0_R |= (1<<(IRQ_Num % 32));
-        break;
-
-    case 1:
-
-        NVIC_IRQ_DIS1_R |= (1<<(IRQ_Num % 32));
-        break;
-
-    case 2:
-
-        NVIC_IRQ_DIS2_R |= (1<<(IRQ_Num % 32));
-        break;
-
-    case 3:
-
-        NVIC_IRQ_DIS3_R |= (1<<(IRQ_Num % 32));
-        break;
-
-    case 4:
-
-        NVIC_IRQ_DIS4_R |= (1<<(IRQ_Num % 32));
-        break;
-
-    }
-=======
     /*
      * - Divide IRQ_Num by 32 to determine which enable register by offset
      * - Remainder IRQ_Num with 32 to determine which bit to be set
      *
      * */
     NVIC_IRQ_DIS_BASE[IRQ_Num/32] = NVIC_IRQ_DIS_BASE[IRQ_Num/32] | (1<<(IRQ_Num % 32));
->>>>>>> e1a41bc (latest 10/8/24)
 
 }
 
@@ -103,39 +46,6 @@ void NVIC_SetPriorityIRQ(NVIC_IRQType IRQ_Num, NVIC_IRQPriorityType IRQ_Priority
 
 
     /*
-<<<<<<< HEAD
-     * -  To determine which combination of bits required : apply equation (IRQ_Num % 4),
-     * this equation result 0 or 1 or 2 or 3 according to the following 3 cases
-     *
-     * -  To determine which register required : consider the IRQ number (0-138) is the offset of
-     * the base register IRQ's priority registers
-     *
-     * */
-    switch(IRQ_Num % 4){
-
-    case 0:
-
-        NVIC_IRQ_PRI_BASE[IRQ_Num & 0x03] = (NVIC_IRQ_PRI_BASE[IRQ_Num & 0x03]  & 0xFFFFFF1F) | ((IRQ_Priority & 0x07)<<5);
-        break;
-
-    case 1:
-
-        NVIC_IRQ_PRI_BASE[IRQ_Num & 0x03] = (NVIC_IRQ_PRI_BASE[IRQ_Num & 0x03] & 0xFFFF1FFF) | ((IRQ_Priority & 0x07)<<13);
-        break;
-
-    case 2:
-
-        NVIC_IRQ_PRI_BASE[IRQ_Num & 0x03] = (NVIC_IRQ_PRI_BASE[IRQ_Num & 0x03] & 0xFF1FFFFF) | ((IRQ_Priority & 0x07)<<21);
-        break;
-
-    case 3:
-
-        NVIC_IRQ_PRI_BASE[IRQ_Num & 0x03] = (NVIC_IRQ_PRI_BASE[IRQ_Num & 0x03] & 0x1FFFFFFF) | ((IRQ_Priority & 0x07)<<29);
-        break;
-
-
-    }
-=======
      * -  To determine which register required : consider the IRQ number (0-138) is the offset of
      * the base register IRQ's priority registers
      *
@@ -145,7 +55,6 @@ void NVIC_SetPriorityIRQ(NVIC_IRQType IRQ_Num, NVIC_IRQPriorityType IRQ_Priority
      * */
     NVIC_IRQ_PRI_BASE[IRQ_Num] = (NVIC_IRQ_PRI_BASE[IRQ_Num] & 0x1F) | ((IRQ_Priority & 0x07)<<5);
 
->>>>>>> e1a41bc (latest 10/8/24)
 
 }
 

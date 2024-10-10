@@ -86,7 +86,9 @@
 #define ADC_MIN_VALUE           0
 #define ADC_NUMBER_OF_CHANNELS  12
 
-#define INTERRUPT
+#define POLLING
+#define ADC0_SS3_IRQ            17
+
 /**************************************************************************
                                    Types declaration
 ****************************************************************************/

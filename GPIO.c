@@ -1,23 +1,14 @@
-<<<<<<< HEAD
-/*
- * GPIO.C
- *
- *  Created on: Apr 18, 2024
- *      Author: mario
- */
-=======
 /******************************************************************************
  *
  * Module: GPIO
  *
  * File Name: GPIO.C
  *
- * Description: source file for the ARM Cortex M4 GPIO driver
+ * Description: source file for the ARM Cortex M4 TM4C123GH6PM GPIO driver
  *
  * Author: Mario kaldas
  *
  *******************************************************************************/
->>>>>>> e1a41bc (latest 10/8/24)
 #include "GPIO.h"
 
 void GPIO_setupPinDirection(GPIO_ports port_num, uint8 pin_num, GPIO_PinDirectionType direction){
