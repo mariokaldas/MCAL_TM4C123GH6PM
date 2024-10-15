@@ -9,7 +9,8 @@
  * Author: Mario kaldas
  *
  *******************************************************************************/
-#include "GPIO.h"
+#include"GPIO.h"
+#include"NVIC.h"
 
 void GPIO_setupPinDirection(GPIO_ports port_num, uint8 pin_num, GPIO_PinDirectionType direction){
 
@@ -434,3 +435,157 @@ uint8 GPIO_readPort(uint8 port_num){
     }
     return 0;
 }
+
+
+void GPIO_edgeTriggeredInterruptInit(uint8 port_num,uint8 pin_num, GPIO_EdgeTriggerType edge, uint8 priority){
+
+    if(port_num >= NUM_OF_PORTS)
+    {
+        return ;
+    }
+    else{
+
+        switch(port_num){
+
+        case PORTA_ID:
+
+            GPIO_PORTA_GPIOIS_R &= ~(1<<pin_num);  /* Edge level enabled */
+            GPIO_PORTA_GPIOIBE_R &= ~(1<<pin_num); /* Certain edge is used */
+
+            if(edge == RISING_EDGE){
+
+                GPIO_PORTA_GPIOIEV_R |= (1<<pin_num); /* rising edge */
+            }
+            else if(edge == FALLING_EDGE){
+
+                GPIO_PORTA_GPIOIEV_R &= ~(1<<pin_num);  /* falling edge */
+            }
+
+            GPIO_PORTA_GPIOIM_R |= (1<<pin_num);   /* This pin is enabled */
+            GPIO_PORTA_GPIOICR_R &= ~(1<<pin_num); /* Clear interrupt flag */
+
+            NVIC_EnableIRQ(GPIO_PORTA_IRQ);                     /* Enable interrupt for port from NVIC controller */
+            NVIC_SetPriorityIRQ(GPIO_PORTA_IRQ,priority);       /* Set priority */
+
+            return;
+
+        case PORTB_ID:
+
+            GPIO_PORTB_GPIOIS_R &= ~(1<<pin_num);  /* Edge level enabled */
+            GPIO_PORTB_GPIOIBE_R &= ~(1<<pin_num); /* Certain edge is used */
+
+            if(edge == RISING_EDGE){
+
+                GPIO_PORTB_GPIOIEV_R |= (1<<pin_num); /* rising edge */
+            }
+            else if(edge == FALLING_EDGE){
+
+                GPIO_PORTB_GPIOIEV_R &= ~(1<<pin_num);  /* falling edge */
+            }
+
+            GPIO_PORTB_GPIOIM_R |= (1<<pin_num);   /* This pin is enabled */
+            GPIO_PORTB_GPIOICR_R &= ~(1<<pin_num); /* Clear interrupt flag */
+
+            NVIC_EnableIRQ(GPIO_PORTB_IRQ);                     /* Enable interrupt for port from NVIC controller */
+            NVIC_SetPriorityIRQ(GPIO_PORTB_IRQ,priority);       /* Set priority */
+
+            return;
+        case PORTC_ID:
+
+            /* From pin 0 to pin 3 in port c : JTAG pins please don't use them */
+            if(pin_num <= 3){
+                return;
+            }
+            else{
+                GPIO_PORTC_GPIOIS_R &= ~(1<<pin_num);  /* Edge level enabled */
+                GPIO_PORTC_GPIOIBE_R &= ~(1<<pin_num); /* Certain edge is used */
+
+                if(edge == RISING_EDGE){
+
+                    GPIO_PORTC_GPIOIEV_R |= (1<<pin_num); /* rising edge */
+                }
+                else if(edge == FALLING_EDGE){
+
+                    GPIO_PORTC_GPIOIEV_R &= ~(1<<pin_num);  /* falling edge */
+                }
+
+                GPIO_PORTC_GPIOIM_R |= (1<<pin_num);   /* This pin is enabled */
+                GPIO_PORTC_GPIOICR_R &= ~(1<<pin_num); /* Clear interrupt flag */
+
+                NVIC_EnableIRQ(GPIO_PORTC_IRQ);                     /* Enable interrupt for port from NVIC controller */
+                NVIC_SetPriorityIRQ(GPIO_PORTC_IRQ,priority);       /* Set priority */
+
+                return;
+            }
+
+        case PORTD_ID:
+
+            GPIO_PORTD_GPIOIS_R &= ~(1<<pin_num);  /* Edge level enabled */
+            GPIO_PORTD_GPIOIBE_R &= ~(1<<pin_num); /* Certain edge is used */
+
+            if(edge == RISING_EDGE){
+
+                GPIO_PORTD_GPIOIEV_R |= (1<<pin_num); /* rising edge */
+            }
+            else if(edge == FALLING_EDGE){
+
+                GPIO_PORTD_GPIOIEV_R &= ~(1<<pin_num);  /* falling edge */
+            }
+
+            GPIO_PORTD_GPIOIM_R |= (1<<pin_num);   /* This pin is enabled */
+            GPIO_PORTD_GPIOICR_R &= ~(1<<pin_num); /* Clear interrupt flag */
+
+            NVIC_EnableIRQ(GPIO_PORTD_IRQ);                     /* Enable interrupt for port from NVIC controller */
+            NVIC_SetPriorityIRQ(GPIO_PORTD_IRQ,priority);       /* Set priority */
+
+            return;
+
+        case PORTE_ID:
+
+            GPIO_PORTE_GPIOIS_R &= ~(1<<pin_num);  /* Edge level enabled */
+            GPIO_PORTE_GPIOIBE_R &= ~(1<<pin_num); /* Certain edge is used */
+
+            if(edge == RISING_EDGE){
+
+                GPIO_PORTE_GPIOIEV_R |= (1<<pin_num); /* rising edge */
+            }
+            else if(edge == FALLING_EDGE){
+
+                GPIO_PORTE_GPIOIEV_R &= ~(1<<pin_num);  /* falling edge */
+            }
+
+            GPIO_PORTE_GPIOIM_R |= (1<<pin_num);   /* This pin is enabled */
+            GPIO_PORTE_GPIOICR_R &= ~(1<<pin_num); /* Clear interrupt flag */
+
+            NVIC_EnableIRQ(GPIO_PORTE_IRQ);                     /* Enable interrupt for port from NVIC controller */
+            NVIC_SetPriorityIRQ(GPIO_PORTE_IRQ,priority);       /* Set priority */
+
+            return;
+
+        case PORTF_ID:
+
+            GPIO_PORTF_GPIOIS_R &= ~(1<<pin_num);  /* Edge level enabled */
+            GPIO_PORTF_GPIOIBE_R &= ~(1<<pin_num); /* Certain edge is used */
+
+            if(edge == RISING_EDGE){
+
+                GPIO_PORTF_GPIOIEV_R |= (1<<pin_num); /* rising edge */
+            }
+            else if(edge == FALLING_EDGE){
+
+                GPIO_PORTF_GPIOIEV_R &= ~(1<<pin_num);  /* falling edge */
+            }
+
+            GPIO_PORTF_GPIOIM_R |= (1<<pin_num);   /* This pin is enabled */
+            GPIO_PORTF_GPIOICR_R &= ~(1<<pin_num); /* Clear interrupt flag */
+
+            NVIC_EnableIRQ(GPIO_PORTF_IRQ);                     /* Enable interrupt for port from NVIC controller */
+            NVIC_SetPriorityIRQ(GPIO_PORTF_IRQ,priority);       /* Set priority */
+
+            return;
+
+        }
+    }
+
+}
+

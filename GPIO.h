@@ -36,7 +36,12 @@
 #define GPIO_PORTA_AMSEL_R          (*((volatile uint32*)0x40004528)) /* Analog mode select */
 #define GPIO_PORTA_LOCK_R           (*((volatile uint32*)0x40004520))  /* LOCK register to unlock write :  0x4C4F434B (not recommended)*/
 #define GPIO_PORTA_CR_R             (*((volatile uint32*)0x40004524)) /* Commit register */
-
+#define GPIO_PORTA_GPIOIS_R         (*((volatile uint32*)0x40004404)) /* Interrupt sense */
+#define GPIO_PORTA_GPIOIBE_R        (*((volatile uint32*)0x40004408)) /* Interrupt both edges */
+#define GPIO_PORTA_GPIOIEV_R        (*((volatile uint32*)0x4000440C)) /* Interrupt event */
+#define GPIO_PORTA_GPIOIM_R         (*((volatile uint32*)0x40004410)) /* Interrupt mask */
+#define GPIO_PORTA_GPIORIS_R        (*((volatile uint32*)0x40004414)) /* Interrupt raw statues */
+#define GPIO_PORTA_GPIOICR_R        (*((volatile uint32*)0x4000441C)) /* Interrupt clear */
 
 /*PORTB*/
 
@@ -51,7 +56,12 @@
 #define GPIO_PORTB_AMSEL_R          (*((volatile uint32*)0x40005528)) /* Analog mode select */
 #define GPIO_PORTB_LOCK_R           (*((volatile uint32*)0x40005520))  /* LOCK register to unlock write :  0x4C4F434B (not recommended)*/
 #define GPIO_PORTB_CR_R             (*((volatile uint32*)0x40005524)) /* Commit register */
-
+#define GPIO_PORTB_GPIOIS_R         (*((volatile uint32*)0x40005404)) /* Interrupt sense */
+#define GPIO_PORTB_GPIOIBE_R        (*((volatile uint32*)0x40005408)) /* Interrupt both edges */
+#define GPIO_PORTB_GPIOIEV_R        (*((volatile uint32*)0x4000540C)) /* Interrupt event */
+#define GPIO_PORTB_GPIOIM_R         (*((volatile uint32*)0x40005410)) /* Interrupt mask */
+#define GPIO_PORTB_GPIORIS_R        (*((volatile uint32*)0x40005414)) /* Interrupt raw statues */
+#define GPIO_PORTB_GPIOICR_R        (*((volatile uint32*)0x4000541C)) /* Interrupt clear */
 
 /*PORTC*/
 
@@ -66,7 +76,12 @@
 #define GPIO_PORTC_AMSEL_R          (*((volatile uint32*)0x40006528)) /* Analog mode select */
 #define GPIO_PORTC_LOCK_R           (*((volatile uint32*)0x40006520))  /* LOCK register to unlock write :  0x4C4F434B (not recommended)*/
 #define GPIO_PORTC_CR_R             (*((volatile uint32*)0x40006524)) /* Commit register */
-
+#define GPIO_PORTC_GPIOIS_R         (*((volatile uint32*)0x40006404)) /* Interrupt sense */
+#define GPIO_PORTC_GPIOIBE_R        (*((volatile uint32*)0x40006408)) /* Interrupt both edges */
+#define GPIO_PORTC_GPIOIEV_R        (*((volatile uint32*)0x4000640C)) /* Interrupt event */
+#define GPIO_PORTC_GPIOIM_R         (*((volatile uint32*)0x40006410)) /* Interrupt mask */
+#define GPIO_PORTC_GPIORIS_R        (*((volatile uint32*)0x40006414)) /* Interrupt raw statues */
+#define GPIO_PORTC_GPIOICR_R        (*((volatile uint32*)0x4000641C)) /* Interrupt clear */
 
 /*PORTD*/
 
@@ -81,7 +96,12 @@
 #define GPIO_PORTD_AMSEL_R          (*((volatile uint32*)0x40007528)) /* Analog mode select */
 #define GPIO_PORTD_LOCK_R           (*((volatile uint32*)0x40007520))  /* LOCK register to unlock write :  0x4C4F434B (not recommended)*/
 #define GPIO_PORTD_CR_R             (*((volatile uint32*)0x40007524)) /* Commit register */
-
+#define GPIO_PORTD_GPIOIS_R         (*((volatile uint32*)0x40007404)) /* Interrupt sense */
+#define GPIO_PORTD_GPIOIBE_R        (*((volatile uint32*)0x40007408)) /* Interrupt both edges */
+#define GPIO_PORTD_GPIOIEV_R        (*((volatile uint32*)0x4000740C)) /* Interrupt event */
+#define GPIO_PORTD_GPIOIM_R         (*((volatile uint32*)0x40007410)) /* Interrupt mask */
+#define GPIO_PORTD_GPIORIS_R        (*((volatile uint32*)0x40007414)) /* Interrupt raw statues */
+#define GPIO_PORTD_GPIOICR_R        (*((volatile uint32*)0x4000741C)) /* Interrupt clear */
 
 /*PORTE*/
 
@@ -96,7 +116,12 @@
 #define GPIO_PORTE_AMSEL_R          (*((volatile uint32*)0x40024528)) /* Analog mode select */
 #define GPIO_PORTE_LOCK_R           (*((volatile uint32*)0x40024520))  /* LOCK register to unlock write :  0x4C4F434B (not recommended)*/
 #define GPIO_PORTE_CR_R             (*((volatile uint32*)0x40024524)) /* Commit register */
-
+#define GPIO_PORTE_GPIOIS_R         (*((volatile uint32*)0x40024404)) /* Interrupt sense */
+#define GPIO_PORTE_GPIOIBE_R        (*((volatile uint32*)0x40024408)) /* Interrupt both edges */
+#define GPIO_PORTE_GPIOIEV_R        (*((volatile uint32*)0x4002440C)) /* Interrupt event */
+#define GPIO_PORTE_GPIOIM_R         (*((volatile uint32*)0x40024410)) /* Interrupt mask */
+#define GPIO_PORTE_GPIORIS_R        (*((volatile uint32*)0x40024414)) /* Interrupt raw statues */
+#define GPIO_PORTE_GPIOICR_R        (*((volatile uint32*)0x4002441C)) /* Interrupt clear */
 
 /*PORTF*/
 
@@ -111,6 +136,13 @@
 #define GPIO_PORTF_AMSEL_R          (*((volatile uint32*)0x40025528)) /* Analog mode select */
 #define GPIO_PORTF_LOCK_R           (*((volatile uint32*)0x40025520))  /* LOCK register to unlock write :  0x4C4F434B (not recommended)*/
 #define GPIO_PORTF_CR_R             (*((volatile uint32*)0x40025524)) /* Commit register */
+#define GPIO_PORTF_GPIOIS_R         (*((volatile uint32*)0x40025404)) /* Interrupt sense */
+#define GPIO_PORTF_GPIOIBE_R        (*((volatile uint32*)0x40025408)) /* Interrupt both edges */
+#define GPIO_PORTF_GPIOIEV_R        (*((volatile uint32*)0x4002540C)) /* Interrupt event */
+#define GPIO_PORTF_GPIOIM_R         (*((volatile uint32*)0x40025410)) /* Interrupt mask */
+#define GPIO_PORTF_GPIORIS_R        (*((volatile uint32*)0x40025414)) /* Interrupt raw statues */
+#define GPIO_PORTF_GPIOICR_R        (*((volatile uint32*)0x4002541C)) /* Interrupt clear */
+
 
 
 /****************************************************************************************************************************
@@ -120,6 +152,12 @@
 #define NUM_OF_PORTS           6
 #define NUM_OF_PINS_PER_PORT   8
 
+#define GPIO_PORTA_IRQ         0
+#define GPIO_PORTB_IRQ         1
+#define GPIO_PORTC_IRQ         2
+#define GPIO_PORTD_IRQ         3
+#define GPIO_PORTE_IRQ         4
+#define GPIO_PORTF_IRQ         30
 
 /****************************************************************************************************************************
  *                                                    User defined variables
@@ -138,6 +176,11 @@ typedef enum
 {
     PORT_INPUT,PORT_OUTPUT=0xFF
 }GPIO_PortDirectionType;
+
+typedef enum{
+
+    RISING_EDGE,FALLING_EDGE
+}GPIO_EdgeTriggerType;
 
 /****************************************************************************************************************************
  *                                                    Functions prototype
@@ -189,6 +232,12 @@ void GPIO_writePort(uint8 port_num, uint8 value);
  * If the input port number is not correct, The function will return ZERO value.
  */
 uint8 GPIO_readPort(uint8 port_num);
+
+/*
+ * Description :
+ * Initialize this pin as edge triggered interrupt with corresponding type of edge
+ */
+void GPIO_edgeTriggeredInterruptInit(uint8 port_num,uint8 pin_num, GPIO_EdgeTriggerType edge, uint8 priority);
 
 
 #endif /* GPIO_H_ */
